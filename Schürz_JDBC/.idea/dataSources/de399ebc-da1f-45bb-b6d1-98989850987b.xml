@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="db@localhost">
+  <database-model serializer="dbm" rdbms="DERBY" format-version="4.11">
+    <root id="1">
+      <ServerVersion>10.14</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="APP">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="NULLID"/>
+    <schema id="4" parent="1" name="SQLJ"/>
+    <schema id="5" parent="1" name="SYS"/>
+    <schema id="6" parent="1" name="SYSCAT"/>
+    <schema id="7" parent="1" name="SYSCS_DIAG"/>
+    <schema id="8" parent="1" name="SYSCS_UTIL"/>
+    <schema id="9" parent="1" name="SYSFUN"/>
+    <schema id="10" parent="1" name="SYSIBM"/>
+    <schema id="11" parent="1" name="SYSPROC"/>
+    <schema id="12" parent="1" name="SYSSTAT"/>
+    <table id="13" parent="2" name="EINSATZ"/>
+    <table id="14" parent="2" name="EINSATZSTATISTIK"/>
+    <table id="15" parent="2" name="MITGLIED"/>
+    <column id="16" parent="13" name="ID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>AUTOINCREMENT: start 1 increment 1</DefaultExpression>
+    </column>
+    <column id="17" parent="13" name="EINSATZART">
+      <Position>2</Position>
+      <DataType>VARCHAR(200)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="18" parent="13" name="ALARMTEXT">
+      <Position>3</Position>
+      <DataType>VARCHAR(200)|12s</DataType>
+    </column>
+    <column id="19" parent="13" name="ALARMSTUFE">
+      <Position>4</Position>
+      <DataType>NUMERIC(5)|2s</DataType>
+    </column>
+    <column id="20" parent="13" name="ORT">
+      <Position>5</Position>
+      <DataType>VARCHAR(200)|12s</DataType>
+    </column>
+    <column id="21" parent="13" name="ZEIT">
+      <Position>6</Position>
+      <DataType>VARCHAR(200)|12s</DataType>
+    </column>
+    <index id="22" parent="13" name="SQL181021151518400">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="23" parent="13" name="EINSATZ_PK">
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="24" parent="14" name="ID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>AUTOINCREMENT: start 1 increment 1</DefaultExpression>
+    </column>
+    <column id="25" parent="14" name="MITGLIED_ID">
+      <Position>2</Position>
+      <DataType>INTEGER|4s</DataType>
+    </column>
+    <column id="26" parent="14" name="EINSATZ_ID">
+      <Position>3</Position>
+      <DataType>INTEGER|4s</DataType>
+    </column>
+    <column id="27" parent="14" name="INFORMATION">
+      <Position>4</Position>
+      <DataType>VARCHAR(200)|12s</DataType>
+    </column>
+    <index id="28" parent="14" name="SQL181021151518420">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="29" parent="14" name="SQL181021151518421">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>MITGLIED_ID</ColNames>
+    </index>
+    <index id="30" parent="14" name="SQL181021151518422">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>EINSATZ_ID</ColNames>
+    </index>
+    <key id="31" parent="14" name="EINSATZSTATISTIK_PK">
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="32" parent="14" name="MITGLIED_FK">
+      <ColNames>MITGLIED_ID</ColNames>
+      <RefSchemaName>APP</RefSchemaName>
+      <RefTableName>MITGLIED</RefTableName>
+      <RefKeyName>MITGLIED_PK</RefKeyName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="33" parent="14" name="EINSATZ_FK">
+      <ColNames>EINSATZ_ID</ColNames>
+      <RefSchemaName>APP</RefSchemaName>
+      <RefTableName>EINSATZ</RefTableName>
+      <RefKeyName>EINSATZ_PK</RefKeyName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <column id="34" parent="15" name="ID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>AUTOINCREMENT: start 1 increment 1</DefaultExpression>
+    </column>
+    <column id="35" parent="15" name="NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(200)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="15" name="DIENSTGRAD">
+      <Position>3</Position>
+      <DataType>VARCHAR(10)|12s</DataType>
+    </column>
+    <column id="37" parent="15" name="EMAIL">
+      <Position>4</Position>
+      <DataType>VARCHAR(200)|12s</DataType>
+    </column>
+    <index id="38" parent="15" name="SQL181021151518350">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="39" parent="15" name="MITGLIED_PK">
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
